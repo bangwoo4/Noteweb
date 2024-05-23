@@ -1,0 +1,121 @@
+.App{
+  background-color: antiquewhite;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  grid-template-columns: 1fr 1fr 1fr;
+}
+.NoNoteSelected{
+  color: orange;
+}
+
+/*Selector*/
+.Selector {
+  background-color: lightblue;
+  width: 20%;
+  border : 1px solid black;
+  border-radius: 10px;
+
+}
+
+.Selector .addInput{
+  font: VNF-Comic Sans;
+  width: 70%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+    transition: transform 0.3s ease-in-out;
+}
+.Selector .addInput:hover{
+  transform: scale(1.1);
+}
+.Selector .addInput::placeholder {
+  color: rgb(33, 31, 31);
+  font-style: italic;
+}
+/*Selector Button*/
+.Selector button{
+  width: 15%;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: lightgreen;
+  transition: transform 0.3s ease-in-out;
+}
+.Selector button:hover{
+  transform: scale(1.1);
+}
+.Selector button:active{
+  transform: scale(0.9);
+}
+
+
+
+  /*Selector ul*/
+.Selector ul{
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+.Selector li{
+  padding: 10px;
+  margin: 10px;
+  background-color: lightblue;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.Selector li:hover{
+  background-color:beige;
+  transform: scale(1.05);
+}
+.Selector li.selected{
+  background-color:bisque;
+
+}
+
+/*Display*/
+.Display {
+  background-color: aliceblue;
+  width: 80%;
+}
+.saveButton{
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: lightgreen;
+  transition: transform 0.3s ease-in-out;
+}
+.saveButton:hover{
+  transform: scale(1.1);
+}
+
+/*Note*/
+.noteBody{
+  font-family: 'Arial', sans-serif;
+  padding: 10px;
+  margin: 10px;
+  border: 1px solid rgba(0,0,0,0.1);
+  border-radius: 10px;
+  width: 90%;
+  height: 90%;
+  overflow: auto;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  background-color: rgb(245, 245, 245);
+  color: black;
+  resize: none;
+  box-shadow: 0 10px 20px rgba(0,0,0,0.1), 0 6px 6px rgba(0,0,0,0.1);
+}
+
+.noteBody:hover {
+  transform: scale(1.01);
+  background-color: rgb(255, 255, 255);
+}
+
