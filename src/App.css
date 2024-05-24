@@ -1,13 +1,169 @@
-.App{
-  background-color: antiquewhite;
+body {
+  margin: 0;
+  padding: 0;
+}
+/*Header*/
+.App-header {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 0.5rem;
+}
+
+.App-header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.App-header nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.App-header nav li {
+  margin-left: 1rem;
+}
+
+.App-header nav a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.App-header nav a:hover {
+  color: #61dafb;
+}
+/*Footer*/
+/* Footer */
+.App-footer {
+  background-color: #282c34;
+  color: white;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.footer-content p {
+  margin-bottom: 1rem;
+}
+
+.footer-content nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-content nav li {
+  margin: 0 1rem;
+  position: relative;
+}
+
+.footer-content nav li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-content nav li a:hover {
+  color: #61dafb;
+}
+
+.contactButton {
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.contactButton:hover {
+  background-color: #2b9fe6;
+}
+
+.contact-modal {
+  color: black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-modal h3 {
+  margin-top: 0;
+}
+
+.contact-modal p {
+  margin-bottom: 1rem;
+}
+
+.contact-modal button {
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.contact-modal button:hover {
+  background-color: #2b9fe6;
+}
+
+/*App*/
+
+.App {
+  background-color: aliceblue;
   text-align: center;
   width: 100%;
   height: 100%;
   margin: 0px;
   padding: 0px;
   display: flex;
-  grid-template-columns: 1fr 1fr 1fr;
+  flex-direction: column;
+  justify-content: space-between;
 }
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 150px;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+/* rest of the CSS remains the same */
 .NoNoteSelected{
   color: orange;
 }
@@ -15,10 +171,9 @@
 /*Selector*/
 .Selector {
   background-color: lightblue;
-  width: 20%;
-  border : 1px solid black;
-  border-radius: 10px;
-
+  width: 22%;
+  border: 1px solid black;
+  border-radius: 0 0 20px 0px;
 }
 
 .Selector .addInput{
@@ -38,7 +193,7 @@
   font-style: italic;
 }
 /*Selector Button*/
-.Selector button{
+.Selector .addButton{
   width: 15%;
   padding: 10px;
   border: 1px solid black;
@@ -48,10 +203,45 @@
   transition: transform 0.3s ease-in-out;
 }
 .Selector button:hover{
-  transform: scale(1.1);
+  transform: scale(1.05);
 }
 .Selector button:active{
   transform: scale(0.9);
+}
+.Selector .deleteButton{
+  align-content: right;
+  align-items: right; 
+  align-tracks: right;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  transition: transform 0.3s ease-in-out;
+}
+.searchInput{
+  font: VNF-Comic Sans;
+  width: 85%;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+.searchInput:hover{
+  transform: scale(1.05);
+}
+.searchInput::placeholder {
+  color: rgb(33, 31, 31);
+  font-style: italic;
+}
+.showSearch{
+  width: 92%;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: lightgrey;
+  transition: transform 0.3s ease-in-out;
 }
 
 
@@ -62,10 +252,11 @@
   padding: 0px;
   margin: 0px;
 }
+/*li = note unit*/
 .Selector li{
-  padding: 10px;
+  padding: 3px;
   margin: 10px;
-  background-color: lightblue;
+  background-color: rgb(255, 255, 255);
   border: 1px solid black;
   border-radius: 5px;
   cursor: pointer;
@@ -77,8 +268,9 @@
 }
 .Selector li.selected{
   background-color:bisque;
-
 }
+
+
 
 /*Display*/
 .Display {
@@ -86,6 +278,7 @@
   width: 80%;
 }
 .saveButton{
+  display: none;
   padding: 10px;
   border: 1px solid black;
   border-radius: 5px;
@@ -100,12 +293,11 @@
 /*Note*/
 .noteBody{
   font-family: 'Arial', sans-serif;
-  padding: 10px;
-  margin: 10px;
+  padding: 15px;
   border: 1px solid rgba(0,0,0,0.1);
-  border-radius: 10px;
+  border-radius: 20px;
   width: 90%;
-  height: 90%;
+  height: 86%;
   overflow: auto;
   transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
   background-color: rgb(245, 245, 245);

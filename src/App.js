@@ -2,6 +2,8 @@ import "./App.css";
 import React from "react";
 import NotesSelector from "./components/NotesSelector";
 import DisplayNotes from "./components/DisplayNotes";
+import Headers from "./components/Header";
+import Footer from "./components/Footer";
 
 function App() {
   const [selectedNote, setSelectedNote] = React.useState(null);
@@ -27,18 +29,26 @@ function App() {
 
   return (
     <div className="App">
-      <NotesSelector
-        onNoteSelect={handleNoteSelect}
-        selectedNote={selectedNote}
-        onNoteUpdate={handleNoteUpdate}
-      />
-      <DisplayNotes
-        selectedNote={selectedNote}
-        noteBody={noteBody}
-        onNoteBodyChange={handleNoteBodyChange}
-        onNoteSave={handleNoteSave}
-        onNoteUpdate={handleNoteUpdate}
-      />
+      <div className="header">
+        <Headers />
+      </div>
+      <div className="content">
+        <NotesSelector
+          onNoteSelect={handleNoteSelect}
+          selectedNote={selectedNote}
+          onNoteUpdate={handleNoteUpdate}
+        />
+        <DisplayNotes
+          selectedNote={selectedNote}
+          noteBody={noteBody}
+          onNoteBodyChange={handleNoteBodyChange}
+          onNoteSave={handleNoteSave}
+          onNoteUpdate={handleNoteUpdate}
+        />
+      </div>
+      <div className="footer">
+        <Footer />
+      </div>
     </div>
   );
 }

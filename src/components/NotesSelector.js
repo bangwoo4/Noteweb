@@ -16,10 +16,11 @@ function NotesSelector({ onNoteSelect, selectedNote, onNoteUpdate }) {
   }, [notes]);
 
   const [newNoteTitle, setNewNoteTitle] = React.useState("");
-
+  const [searchValue, setSearchValue] = React.useState("");
   const handleNoteSelect = (note) => {
     onNoteSelect(note);
   };
+  const [showSearchBar, setShowSearchBar] = React.useState(false);
 
   const handleInputChange = (event) => {
     setNewNoteTitle(event.target.value);
@@ -30,10 +31,22 @@ function NotesSelector({ onNoteSelect, selectedNote, onNoteUpdate }) {
       addNote();
     }
   };
+  const handleDelete = (id) => {
+    setNotes(notes.filter((note) => note.id !== id));
+  };
+  const handleSearchChange = (event) => {
+    setSearchValue(event.target.value);
+  };
+  const filteredNotes = notes.filter((note) =>
+    note.title.toLowerCase().includes(searchValue.toLowerCase())
+  );
+  const handleShowSearchBar = () => {
+    setShowSearchBar(!showSearchBar);
+  };
 
   function addNote() {
     if (newNoteTitle === "") return;
-    const newNote = { id: notes.length + 1, title: newNoteTitle, body: "" };
+    const newNote = { id: Date.now(), title: newNoteTitle, body: "" };
     setNotes((notes) => [...notes, newNote]);
     setNewNoteTitle("");
   }
@@ -64,14 +77,38 @@ function NotesSelector({ onNoteSelect, selectedNote, onNoteUpdate }) {
           Add
         </button>
       </div>
-      <ul>
-        {notes.map((note) => (
+      <div className="searchBlock">
+        <button className="showSearch" onClick={handleShowSearchBar}>
+          {showSearchBar ? "Hide Search Bar" : "🔎"}
+        </button>
+        {showSearchBar && (
+          <input
+            className="searchInput"
+            type="text"
+            value={searchValue}
+            onChange={handleSearchChange}
+            placeholder="Search notes"
+          />
+        )}
+      </div>
+      <ul className="NotesList">
+        {filteredNotes.map((note) => (
           <li
             key={note.id}
             className={selectedNote?.id === note.id ? "selected" : ""}
             onClick={() => handleNoteSelect(note)}
+            style={{ display: "flex", justifyContent: "space-between" }}
           >
             {note.title}
+            <button
+              className="deleteButton"
+              onClick={(e) => {
+                e.stopPropagation();
+                handleDelete(note.id);
+              }}
+            >
+              ❌
+            </button>
           </li>
         ))}
       </ul>
