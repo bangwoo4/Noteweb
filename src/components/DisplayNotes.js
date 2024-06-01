@@ -23,10 +23,10 @@ function DisplayNotes({
 
   return (
     <div className="Display">
-      <h1>📝Display Notes</h1>
+      <div className="curve"></div>
       {selectedNote ? (
         <>
-          <h2> 🖊️{selectedNote.title}</h2>
+          <h2 className="noteTitle"> 🖊️{selectedNote.title}</h2>
           <textarea
             className="noteBody"
             value={noteBody}

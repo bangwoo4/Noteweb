@@ -61,6 +61,24 @@ function NotesSelector({ onNoteSelect, selectedNote, onNoteUpdate }) {
     }
   }, [selectedNote]);
 
+  function handleMoveUp(index) {
+    if (index === 0) return;
+    const newNotes = [...notes];
+    const temp = newNotes[index];
+    newNotes[index] = newNotes[index - 1];
+    newNotes[index - 1] = temp;
+    setNotes(newNotes);
+  }
+
+  function handleMoveDown(index) {
+    if (index === notes.length - 1) return;
+    const newNotes = [...notes];
+    const temp = newNotes[index];
+    newNotes[index] = newNotes[index + 1];
+    newNotes[index + 1] = temp;
+    setNotes(newNotes);
+  }
+
   return (
     <div className="Selector">
       <h1>📒Notes Selector</h1>
@@ -76,20 +94,20 @@ function NotesSelector({ onNoteSelect, selectedNote, onNoteUpdate }) {
         <button className="addButton" onClick={addNote}>
           Add
         </button>
-      </div>
-      <div className="searchBlock">
-        <button className="showSearch" onClick={handleShowSearchBar}>
-          {showSearchBar ? "Hide Search Bar" : "🔎"}
-        </button>
-        {showSearchBar && (
-          <input
-            className="searchInput"
-            type="text"
-            value={searchValue}
-            onChange={handleSearchChange}
-            placeholder="Search notes"
-          />
-        )}
+        <div className="searchBlock">
+          <button className="showSearch" onClick={handleShowSearchBar}>
+            {showSearchBar ? "Hide Search Bar" : "🔎"}
+          </button>
+          {showSearchBar && (
+            <input
+              className="searchInput"
+              type="text"
+              value={searchValue}
+              onChange={handleSearchChange}
+              placeholder="Search notes"
+            />
+          )}
+        </div>
       </div>
       <ul className="NotesList">
         {filteredNotes.map((note) => (
@@ -100,15 +118,35 @@ function NotesSelector({ onNoteSelect, selectedNote, onNoteUpdate }) {
             style={{ display: "flex", justifyContent: "space-between" }}
           >
             {note.title}
-            <button
-              className="deleteButton"
-              onClick={(e) => {
-                e.stopPropagation();
-                handleDelete(note.id);
-              }}
-            >
-              ❌
-            </button>
+            <div>
+              <button
+                className="moveUp"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleMoveUp(notes.indexOf(note));
+                }}
+              >
+                ⬆️
+              </button>
+              <button
+                className="moveDown"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleMoveDown(notes.indexOf(note));
+                }}
+              >
+                ⬇️
+              </button>
+              <button
+                className="deleteButton"
+                onClick={(e) => {
+                  e.stopPropagation();
+                  handleDelete(note.id);
+                }}
+              >
+                ❌
+              </button>
+            </div>
           </li>
         ))}
       </ul>
