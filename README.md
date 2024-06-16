@@ -1,4 +1,7 @@
-Một cái web notes nho nhỏ
+Simple note-taking web application
+
+Notes stored in the browser's local storage
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
