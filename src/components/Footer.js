@@ -59,7 +59,7 @@ function Footer() {
               </a>
             </li>
             <li>
-              <a href="https://github.com/BangCP" aria-label="Github">
+              <a href="https://github.com/Bangwoo4" aria-label="Github">
                 <FontAwesomeIcon icon={faGithub} /> Github
               </a>
             </li>
