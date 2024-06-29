@@ -1,11 +1,15 @@
 import "./App.css";
 import React from "react";
+import Login from "./components/Login";
 import NotesSelector from "./components/NotesSelector";
 import DisplayNotes from "./components/DisplayNotes";
 import Headers from "./components/Header";
 import Footer from "./components/Footer";
 
 function App() {
+  //login
+  const [isLoggedIn, setIsLoggedIn] = React.useState(false);
+
   const [selectedNote, setSelectedNote] = React.useState(null);
   const [noteBody, setNoteBody] = React.useState("");
 
@@ -32,20 +36,24 @@ function App() {
       <div className="header">
         <Headers />
       </div>
-      <div className="content">
-        <NotesSelector
-          onNoteSelect={handleNoteSelect}
-          selectedNote={selectedNote}
-          onNoteUpdate={handleNoteUpdate}
-        />
-        <DisplayNotes
-          selectedNote={selectedNote}
-          noteBody={noteBody}
-          onNoteBodyChange={handleNoteBodyChange}
-          onNoteSave={handleNoteSave}
-          onNoteUpdate={handleNoteUpdate}
-        />
-      </div>
+      {!isLoggedIn && <Login onLogin={() => setIsLoggedIn(true)} />}
+      {isLoggedIn && (
+        <div className="content">
+          <NotesSelector
+            onNoteSelect={handleNoteSelect}
+            selectedNote={selectedNote}
+            onNoteUpdate={handleNoteUpdate}
+          />
+          <DisplayNotes
+            selectedNote={selectedNote}
+            noteBody={noteBody}
+            onNoteBodyChange={handleNoteBodyChange}
+            onNoteSave={handleNoteSave}
+            onNoteUpdate={handleNoteUpdate}
+          />
+        </div>
+      )}
+
       <div className="footer">
         <Footer />
       </div>

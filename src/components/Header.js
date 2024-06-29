@@ -7,16 +7,8 @@ function Header() {
       <nav>
         <ul>
           <li>
-            <a href="https://lms.hcmut.edu.vn/course/view.php?id=14227">Home</a>
-          </li>
-          <li>
-            <a href="https://lms.hcmut.edu.vn/course/view.php?id=14227">
-              Notes
-            </a>
-          </li>
-          <li>
-            <a href="https://lms.hcmut.edu.vn/course/view.php?id=14227">
-              Settings
+            <a href="http://localhost:3000/?" style={{ marginRight: "10px" }}>
+              Home
             </a>
           </li>
         </ul>
