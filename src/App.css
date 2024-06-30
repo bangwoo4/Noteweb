@@ -1,0 +1,368 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+/*Header*/
+@keyframes slideDown {
+  from {
+    transform: translateY(-100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+@keyframes slideUp{
+  from {
+    transform: translateY(100%);
+  }
+  to {
+    transform: translateY(0);
+  }
+}
+
+.App-header {
+  animation: slideDown 1s ease-out;
+}
+
+.App-header {
+  background-color: #282c34;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  color: white;
+  padding: 0.5rem;
+  transition: all 0.3s ease-in-out;
+  animation: slideDown 1s;
+}
+
+.App-header h1 {
+  font-size: 2rem;
+  margin: 0;
+}
+
+.App-header nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.App-header nav li {
+  margin-left: 1rem;
+}
+
+.App-header nav a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.App-header nav a:hover {
+  color: #61dafb;
+}
+
+/* Footer */
+.App-footer {
+  background-color: #282c34;
+  color: white;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  animation: slideUp 1s;
+}
+
+.footer-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+}
+
+.footer-content p {
+  margin-bottom: 1rem;
+}
+
+.footer-content nav ul {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.footer-content nav li {
+  margin: 0 1rem;
+  position: relative;
+}
+
+.footer-content nav li a {
+  color: white;
+  text-decoration: none;
+  transition: color 0.3s ease-in-out;
+}
+
+.footer-content nav li a:hover {
+  color: #61dafb;
+}
+
+.contactButton {
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.contactButton:hover {
+  background-color: #2b9fe6;
+}
+
+.contact-modal {
+  color: black;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: white;
+  padding: 2rem;
+  border-radius: 5px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.contact-modal h3 {
+  margin-top: 0;
+}
+
+.contact-modal p {
+  margin-bottom: 1rem;
+}
+
+.contact-modal button {
+  background-color: #61dafb;
+  color: #282c34;
+  border: none;
+  border-radius: 5px;
+  padding: 0.5rem 1rem;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: background-color 0.3s ease-in-out;
+}
+
+.contact-modal button:hover {
+  background-color: #2b9fe6;
+}
+
+/*App*/
+
+.App {
+  background-color: aliceblue;
+  text-align: center;
+  width: 100%;
+  height: 100%;
+  margin: 0px;
+  padding: 0px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.content {
+  flex-grow: 1;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 150px;
+}
+
+.footer {
+  flex-shrink: 0;
+}
+
+/* rest of the CSS remains the same */
+.NoNoteSelected {
+  color: orange;
+}
+
+/*Selector*/
+.Selector {
+  background-color: lightblue;
+  width: 25%;
+  border: 1px solid black;
+  border-radius: 0 0 20px 0px;
+}
+
+.Selector .addInput {
+  font: VNF-Comic Sans;
+  width: 70%;
+  margin: 10px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+.Selector .addInput:hover {
+  transform: scale(1.1);
+}
+.Selector .addInput::placeholder {
+  color: rgb(33, 31, 31);
+  font-style: italic;
+}
+/*Selector Button*/
+.Selector .addButton {
+  width: 15%;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: lightgreen;
+  transition: transform 0.3s ease-in-out;
+}
+.Selector button:hover {
+  transform: scale(1.05);
+}
+.Selector button:active {
+  transform: scale(0.9);
+}
+.Selector .deleteButton {
+  align-content: right;
+  align-items: right;
+  align-tracks: right;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  transition: transform 0.3s ease-in-out;
+}
+.Selector .moveUp,
+.moveDown {
+  align-content: right;
+  align-items: right;
+  align-tracks: right;
+  padding: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: rgb(255, 255, 255);
+  transition: transform 0.3s ease-in-out;
+}
+.Selector .moveUp:hover .moveDown:hover {
+  transform: scale(1.05);
+}
+
+.searchInput {
+  font: VNF-Comic Sans;
+  width: 85%;
+  margin: 5px;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  transition: transform 0.3s ease-in-out;
+}
+.searchInput:hover {
+  transform: scale(1.05);
+}
+.searchInput::placeholder {
+  color: rgb(33, 31, 31);
+  font-style: italic;
+}
+.showSearch {
+  width: 92%;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: lightgrey;
+  transition: transform 0.3s ease-in-out;
+}
+
+/*Selector ul*/
+.Selector ul {
+  list-style-type: none;
+  padding: 0px;
+  margin: 0px;
+}
+/*li = note unit*/
+.Selector li {
+  padding: 3px;
+  margin: 10px;
+  background-color: rgb(255, 255, 255);
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: transform 0.3s ease-in-out;
+}
+.Selector li:hover {
+  background-color: beige;
+  transform: scale(1.05);
+}
+.Selector li.selected {
+  background-color: bisque;
+}
+
+/*Display*/
+.Display {
+  background-color: aliceblue;
+  width: 75%;
+}
+.saveButton {
+  display: none;
+  padding: 10px;
+  border: 1px solid black;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: lightgreen;
+  transition: transform 0.3s ease-in-out;
+}
+.saveButton:hover {
+  transform: scale(1.1);
+}
+.noteTitle {
+  margin: 0px;
+  padding: 10px;
+}
+/*Note*/
+.noteBody {
+  font-family: "Arial", sans-serif;
+  padding: 10px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  width: 90%;
+  height: 86%;
+  overflow: auto;
+  transition: transform 0.3s ease-in-out, background-color 0.3s ease-in-out;
+  background-color: rgb(245, 245, 245);
+  color: black;
+  resize: none;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1), 0 6px 6px rgba(0, 0, 0, 0.1);
+}
+
+.noteBody:hover {
+  transform: scale(1.01);
+  background-color: rgb(255, 255, 255);
+}
+
+.divider {
+  width: 100%;
+  height: 1px;
+  background-color: #000000;
+  margin: 2px;
+  border: 1px solid #000000;
+  border-radius: 10px 5px 2px 10px;
+}
+.curve {
+  margin: 40px 0 0 0;
+  width: 100%;
+  height: 10px;
+  border: solid 5px #000;
+  border-color: #000 transparent transparent transparent;
+  border-radius: 50% 0 0 0;
+}
