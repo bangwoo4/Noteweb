@@ -1,4 +1,5 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
+import "./Footer.css";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
   faFacebook,
@@ -7,31 +8,11 @@ import {
 } from "@fortawesome/free-brands-svg-icons";
 
 function Footer() {
-  const [showContactModal, setShowContactModal] = useState(false);
-  const modalRef = useRef();
-
-  const toggleContactModal = () => {
-    setShowContactModal(!showContactModal);
-  };
-
-  useEffect(() => {
-    const handleClickOutside = (event) => {
-      if (modalRef.current && !modalRef.current.contains(event.target)) {
-        setShowContactModal(false);
-      }
-    };
-
-    document.addEventListener("mousedown", handleClickOutside);
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, []);
-
   return (
     <footer className="App-footer">
       <div className="footer-content">
-        <p>&copy; 2024 Note Taking App. All rights reserved.</p>
-        <p>Designed by Bang - CSE - HCMUT</p>
+        <p>bangwoo4</p>
+        <p>&copy; Copyright 2024 - React Media Player </p>
         <nav>
           <ul>
             <li>
@@ -62,30 +43,6 @@ function Footer() {
               <a href="https://github.com/bangwoo4" aria-label="Github">
                 <FontAwesomeIcon icon={faGithub} /> Github
               </a>
-            </li>
-            <li>
-              <button
-                className="contactButton"
-                onClick={toggleContactModal}
-                aria-label="Contact Us"
-              >
-                About
-              </button>
-              {showContactModal && (
-                <div className="contact-modal" ref={modalRef}>
-                  <h3>Contact</h3>
-                  <p>Nguyen Dinh Bang - 2210298</p>
-                  <p>nguyendinhbang53az@gmail.com</p>
-                  <p>bang.nguyendinh@hcmut.edu.vn</p>
-                  <p>0901236608</p>
-                  <button
-                    onClick={toggleContactModal}
-                    aria-label="Close Contact Modal"
-                  >
-                    Close
-                  </button>
-                </div>
-              )}
             </li>
           </ul>
         </nav>
