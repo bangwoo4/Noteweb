@@ -1,6 +1,11 @@
 Simple note-taking web application
 
 Notes stored in the browser's local storage
+## Screenshot
+![image](https://github.com/user-attachments/assets/d4d3f5cd-4058-4e79-951f-7d61fa0df4cf)
+
+
+
 
 # Getting Started with Create React App
 
